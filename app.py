@@ -4,6 +4,9 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from datetime import datetime
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("APP_KEY")  # Change this to a secure secret key
