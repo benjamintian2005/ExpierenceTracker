@@ -40,15 +40,6 @@ def add_experience():
         flash('Experience added successfully!', 'success')
         return redirect(url_for('index'))
 
-@app.route('/delete/<experience_id>')
-def delete_experience(experience_id):
-    try:
-        experiences.delete_one({'_id': ObjectId(experience_id)})
-        flash('Experience deleted successfully!', 'success')
-    except Exception as e:
-        flash('Error deleting experience!', 'error')
-    return redirect(url_for('index'))
-
 @app.template_filter('format_date')
 def format_date(date):
     return date.strftime('%B %d, %Y at %I:%M %p')
